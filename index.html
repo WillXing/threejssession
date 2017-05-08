@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -23,6 +23,8 @@
 		<!-- Printing and PDF exports -->
 		<script src="bower_components/jquery-3.2.1.min/index.js"></script>
 		<script src="js/three.js"></script>
+		<script src="js/Projector.js"></script>
+		<script src="js/CanvasRenderer.js"></script>
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
@@ -36,6 +38,11 @@
 				height: 500px;
 				width: 100%;
 			}
+			.reference {
+				font-size: 30px;
+				text-align: left;
+				float: right;
+			}
 		</style>
 	</head>
 
@@ -47,337 +54,305 @@
 			<div class="slides">
 				<section>
 					<h1>Three.js</h1>
-					<h3>A JavaScript 3D Library</h3>
+					<h3>Make VR/AR Every Where</h3>
 					<p>
 						<small>Created by <a href="xnhuang@thoughtworks.com">Xing</a></small>
 					</p>
+					<aside class="notes">
+						1. 自我介绍
+						2. 开场
+					</aside>
 				</section>
-
 				<section>
-					<h2>Hello There</h2>
-					<p class="three-demo" id="section_embed_1"></p>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
+					<h2>Tech Radar</h2>
+					<a href="https://www.thoughtworks.com/radar/languages-and-frameworks" class="navigate-down">
+							<img width="502" height="502" data-src="assets/techradar.png" alt="techradar">
+					</a>
+					<aside class="notes">
+						入选理由:
 						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
+						<ol>
+							<li>VR/AR应用场景的普及，让浏览器中可以运行此类应用变得越来越有意义</li>
+							<li>Three.js上升的使用趋势</li>
+							<li>浏览器对WebGL支持程度的上升</li>
+							<li>Three.js活跃的社区支持</li>
+						</ol>
+					</aside>
+				</section>
+				<section>
+					<h2>What is WebGL</h2>
+					<p class="fragment">
+						Web Graphics Library
+					</p>
+					<aside class="notes">
+							<ol>
+								<li>webgl历史</li>
+								<li>
+									webgl介绍
+									<ul>
+										<li><b>GL什么意思</b>Web Graphics Library (web图形库)</li>
+										<li><b>简介：</b>使用JS编码，在浏览器上渲染互动式2D和3D图形的技术</li>
+										<li><b>硬件加速: </b>分配给专门的硬件来处理以减轻中央处理器的工作量之技术</li>
+									</ul>
+								</li>
+							</ol>
+					</aside>
+				</section>
+				<section>
+					<h2>Compatibility</h2>
+					<a href="http://caniuse.com/#feat=webgl" class="navigate-down">
+							<img width="1173" height="491" data-src="assets/compatibility.png" alt="compatibility">
+					</a>
+					<aside class="notes">
+							ThreeJS 使用 webgl，所以webgl的兼容程度，也可以代表ThreeJS的兼容程度
+
+					</aside>
+				</section>
+				<section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+						<h2>What is Three.js</h2>
+						<a href="https://threejs.org/" class="navigate-down">
+							<img width="325" height="211" data-src="assets/3js_logo.jpg" alt="logo">
 						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
 						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
+							<ol>
+								<li>
+									threejs 介绍
+									<p>a powerful JavaScript visualization and 3D rendering framework（or Engine） - WebGL 3D</p>
+									<p>为什么不直接用WebGL -- WebGL编程指南 500来页</p>
+								</li>
+								
+							</ol>
 						</aside>
 					</section>
 					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment fade-up">fade-up (also down, left and right!)</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
+						<!--<h2>Hello World</h2>-->
+						<p class="three-demo" id="section_embed_1"></p>
+						<aside class="notes">
+							<ol>
+								<li>多少行？虽然没有达到一行就可以出效果的地步，但是16行就可以做出来了</li>
+								<li>
+									在3.js中对webGL的操作进行了漂亮的封装
+								</li>
+								<li>
+									如果是原生webGL, 你可能要面临更复杂的问题
+									<i>具体可以下去试试</i>
+								</li>
+							</ol>
+						</aside>
 					</section>
 				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
+				<!--<section>
+					<h2>Examples</h2>
 					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
+						<li><a href="http://www.playmapscube.com/">Google Map Cube</a></li>
+						<li><a href="http://www.mickael.pusku.com/labyrinthe/laby.php">Laby</a></li>
 					</ol>
-				</section>
-
+				</section>-->
 				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
+					<h2>VR/AR</h2>
 					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+							<p>回顾一下ThreeJS入选的理由：</p>
+							techradar上是这么说的：鉴于人们对突然涌出的新的头戴式设备的热情，
+							我们相信在浏览器中会有很多有意义的VR和AR的应用场景，尤其是在移动设备上。
+							我们看见一个强大的Js可视化和3d渲染引擎，Three.js上升的使用量。
+							同时，WebGL支持率的上升，也是入选的原因之一。
+							这个开源的项目，也拥有着活跃的社区支持。
+							<p>接下来分别说说VR、AR与ThreeJS的关系</p>
 					</aside>
 				</section>
-
 				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					<section>
+						<h2>VR</h2>
+						<img width="512" height="384" data-src="assets/PSVR.jpg" alt="vr">
+						<aside class="notes">
+								VR的概念/原理介绍
+								<ol>
+									<li>覆盖人眼的屏幕；左右两眼 独立显示</li>
+									<li>3D的显示效果</li>
+									<li>动作感应</li>
+								</ol>
+								ThreeJS可以实现VR吗？如何实现？先看一个VR伴侣
+								<br>
+								<hr>
+								<h2>不讲</h2>
+								3.js实现web中的VR应用，需要什么
+								<li>设备信息</li>
+								<li>图像的变换</li>
+						</aside>
+					</section>
+					<section>
+						<h2>WebVR</h2>
+						<aside class="notes">
+								<p>什么是WebVR
+									<ul>
+										<li>一套实验性的JS VR api</li>
+										<li>目前处于草案阶段</li>
+										<li>ThreeJS本身很难拿到设备信息，因为WebGL就没这个能力，但是WebVR是可以的</li>
+									</ul>
+								</p>
+								<p>WebVR可以做什么
+									<ul>
+										<li>对VR来说很重要</li>
+										<li>提供了一套获取HMD设备信息的实现要求</li>
+										<li>换句话说实现了它的浏览器就可以直接通过这个API获取设备信息</li>
+									</ul>
+								</p>
+						</aside>
+					</section>
+					<section>
+						<h2>WebVR Compatibility</h2>
+						<a href="http://caniuse.com/#feat=webvr" class="navigate-down">
+							<img width="1000" height="400" data-src="assets/webvrcompatibility.png" alt="webvrcompatibility">
+						</a>
+						<p class="fragment">
+							<a href="https://github.com/googlevr/webvr-polyfill">WebVR Polyfill by GoogleVR</a>
+						</p>
+						<aside class="notes">
+								<p>webvr的支持程度目前来看还很差:
+									currently available in
+									<ul>
+										 <li>Firefox Nightly builds</li>
+										 <li>Chrome 56+ for Android</li>
+										 <li>experimental builds of Chromium for Windows</li>
+										 <li>Samsung Internet Browser for Gear VR</li>
+									</ul>
+								</p>
+								<p>可以通过googleVR 的 polyfill来解决</p>
+						</aside>
+					</section>
+					<section>
+						<h2>VR Controll</h2>
+						<img width="312" height="312" data-src="assets/vrcontroll.jpg" alt="vrcontroll">
+						<pre class="fragment">
+						<code class="hljs">
+	navigator.getVRDisplays().then(function(display) {
+		//TODO
+	})
+						</code>
+						</pre>
+						<aside class="notes">
+								<p>设备部分
+									<ul>
+										 <li>通过WebVR来得到设备信息</li>
+										 <li>Navigator 对象包含有关浏览器的信息。</li>
+										 <li>没有应用于 navigator 对象的公开标准，不过所有浏览器都支持该对象。</li>
+									</ul>
+								</p>
+						</aside>
+					</section>
+					<section>
+						<h2>VR Camera</h2>
+						<pre>
+						<code class="hljs">
+	THREE.WebVRCamera = function ( display, renderer ) {
+		//TODO
+	}
+						</code>
+						</pre>
+						<aside class="notes">
+								<p>显示部分
+									<ul>
+										 <li>这个WebVRCamera的API，目前threejs的doc里面没有，可以在example里面找到</li>
+										 <li>原因？不清楚，也可能弃用了</li>
+										 <li>把通过WebVR得到设备信息</li>
+										 <li>传给ThreeJS</li>
+									</ul>
+								</p>
+						</aside>
+					</section>
+					<section>
+						<h2>VR Example</h2>
+						<!--<iframe 
+							data-src="https://webvr.info/samples/08-dynamic-resolution.html" 
+							width="1200" 
+							height="500" 
+							frameborder="0" 
+							marginwidth="0" 
+							marginheight="0" 
+							scrolling="no" 
+							style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" 
+							allowfullscreen></iframe>-->
+							<img width="1173" height="491" data-src="assets/webvr.gif" alt="webvr">
+						
+					</section>
 				</section>
-
 				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
+					<section>
+						<h2>AR</h2>
+						<img src="assets/ar.jpg" width="600" height="315" alt="ar">
+						<aside class="notes">
+								AR(增强现实)的概念/原理介绍
+								AR是计算机结合自然环境生成内容，并结合显示在自然环境中的一种技术
+								<p>几个要素</p>
+								<ol>
+									<li>获取视频流</li>
+									<li>分析视频中的 标记（marker）</li>
+									<li>在对应标记处渲染放置3D图像</li>
+									<li>叠加3D图像和视频</li>
+								</ol>
+						</aside>
+					</section>
+					<section>
+						<h2>Three.js</h2>
+						<p class="three-demo" id="section_embed_2"></p>
+						<aside class="notes">
+							<p>这几个任务里面，3d图形是threejs的强项</p>
+							<p>自然，需要用threejs处理这个部分</p>
+						</aside>
+					</section>
+					<section>
+						<h2>JSARToolKit</h2>
+						<img src="assets/artoolkit.png" width="350" height="160" alt="artoolkit">
+						<aside class="notes">
+							<p>可以帮助我们处理视频流中的标记</p>
+							<ol>
+								<li>实时计算用户的视窗范围</li>
+								<li>找到视窗中的marker（并且可以处理自然标记）</li>
+							</ol>
+						</aside>
+					</section>
+					<section>
+						<h2>Step BY Step</h2>
+						<p class="fragment">
+							<img src="assets/arvideo.ico" width="100" height="100" alt="arvideo">
+						</p>
+						<p class="fragment"> 
+							<img src="assets/armarker.png" width="100" height="100" alt="armarker">
+						</p>
+						<p class="fragment"> 
+							<img src="assets/armodel.jpg" width="100" height="100" alt="armodel">
+						</p>
+						<aside class="notes">
+							<p>大概有四个步骤</p>
+							<ol>
+								<li>通过WebCam获取视频</li>
+								<li>通过ARToolKit 找到视窗中的marker（并且可以处理自然标记）</li>
+								<li>通过ThreeJS，生成3D图形</li>
+								<li>叠加在现实世界和3d</li>
+							</ol>
+						</aside>
+					</section>
+					<section>
+						<h2>AR Example</h2>
+						<img src="assets/ardemo.gif" width="400" height="225" alt="ardemo">
+					</section>
 				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
 				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
+					<h1>Q&A</h1>
 				</section>
-
 				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
+					<h1>Thanks</h1>
+					<br>
+					<br>
+					<i class="reference">
+						<p>Ref:</p>
+						<a href="http://threejs.org">Three.JS</a> <br>
+						<a href="https://webvr.info">WebVR</a> <br>
+						<a href="https://artoolkit.org">ARToolKit</a> <br>
+						<a href="caniuse.com">CanIUse</a>
+					</i>
 				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
-
 			</div>
 
 		</div>
