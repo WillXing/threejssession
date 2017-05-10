@@ -22,9 +22,12 @@
 
 		<!-- Printing and PDF exports -->
 		<script src="bower_components/jquery-3.2.1.min/index.js"></script>
+		
 		<script src="js/three.js"></script>
 		<script src="js/Projector.js"></script>
 		<script src="js/CanvasRenderer.js"></script>
+		<script src="js/stats.min.js"></script>
+		<script src="js/Birds.js"></script>
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
@@ -80,33 +83,35 @@
 					</aside>
 				</section>
 				<section>
-					<h2>What is WebGL</h2>
-					<p class="fragment">
-						Web Graphics Library
-					</p>
-					<aside class="notes">
-							<ol>
-								<li>webgl历史</li>
-								<li>
-									webgl介绍
-									<ul>
-										<li><b>GL什么意思</b>Web Graphics Library (web图形库)</li>
-										<li><b>简介：</b>使用JS编码，在浏览器上渲染互动式2D和3D图形的技术</li>
-										<li><b>硬件加速: </b>分配给专门的硬件来处理以减轻中央处理器的工作量之技术</li>
-									</ul>
-								</li>
-							</ol>
-					</aside>
-				</section>
-				<section>
-					<h2>Compatibility</h2>
-					<a href="http://caniuse.com/#feat=webgl" class="navigate-down">
-							<img width="1173" height="491" data-src="assets/compatibility.png" alt="compatibility">
-					</a>
-					<aside class="notes">
-							ThreeJS 使用 webgl，所以webgl的兼容程度，也可以代表ThreeJS的兼容程度
+					<section>
+						<h2>What is WebGL</h2>
+						<p class="fragment">
+							Web Graphics Library
+						</p>
+						<aside class="notes">
+								<ol>
+									<li>webgl历史</li>
+									<li>
+										webgl介绍
+										<ul>
+											<li><b>GL什么意思</b>Web Graphics Library (web图形库)</li>
+											<li><b>简介：</b>使用JS编码，在浏览器上渲染互动式2D和3D图形的技术</li>
+											<li><b>硬件加速: </b>分配给专门的硬件来处理以减轻中央处理器的工作量之技术</li>
+										</ul>
+									</li>
+								</ol>
+						</aside>
+					</section>
+					<section>
+						<h2>Compatibility</h2>
+						<a href="http://caniuse.com/#feat=webgl" class="navigate-down">
+								<img width="1173" height="491" data-src="assets/compatibility.png" alt="compatibility">
+						</a>
+						<aside class="notes">
+								ThreeJS 使用 webgl，所以webgl的兼容程度，也可以代表ThreeJS的兼容程度
 
-					</aside>
+						</aside>
+					</section>
 				</section>
 				<section>
 					<section>
@@ -153,12 +158,9 @@
 					<h2>VR/AR</h2>
 					<aside class="notes">
 							<p>回顾一下ThreeJS入选的理由：</p>
-							techradar上是这么说的：鉴于人们对突然涌出的新的头戴式设备的热情，
-							我们相信在浏览器中会有很多有意义的VR和AR的应用场景，尤其是在移动设备上。
-							我们看见一个强大的Js可视化和3d渲染引擎，Three.js上升的使用量。
-							同时，WebGL支持率的上升，也是入选的原因之一。
-							这个开源的项目，也拥有着活跃的社区支持。
-							<p>接下来分别说说VR、AR与ThreeJS的关系</p>
+							<p>VR/AR的热度上升，与跨平台的大趋势的结合，让Web中的3D渲染变得非常的关键</p>
+							<p>因为 VR AR 都离不开3D图形</p>
+							<p>接下来分别说说ThreeJS是如何构建Web中的VR和AR</p>
 					</aside>
 				</section>
 				<section>
@@ -294,14 +296,6 @@
 						</aside>
 					</section>
 					<section>
-						<h2>Three.js</h2>
-						<p class="three-demo" id="section_embed_2"></p>
-						<aside class="notes">
-							<p>这几个任务里面，3d图形是threejs的强项</p>
-							<p>自然，需要用threejs处理这个部分</p>
-						</aside>
-					</section>
-					<section>
 						<h2>JSARToolKit</h2>
 						<img src="assets/artoolkit.png" width="350" height="160" alt="artoolkit">
 						<aside class="notes">
@@ -310,6 +304,14 @@
 								<li>实时计算用户的视窗范围</li>
 								<li>找到视窗中的marker（并且可以处理自然标记）</li>
 							</ol>
+						</aside>
+					</section>
+					<section>
+						<h2>Three.js</h2>
+						<iframe data-src="https://threejs.org/examples/webgl_gpgpu_birds.html" width="600" height="400"></iframe>
+						<aside class="notes">
+							<p>这几个任务里面，3d图形是threejs的强项</p>
+							<p>自然，需要用threejs处理这个部分</p>
 						</aside>
 					</section>
 					<section>
@@ -337,6 +339,13 @@
 						<h2>AR Example</h2>
 						<img src="assets/ardemo.gif" width="400" height="225" alt="ardemo">
 					</section>
+					<aside class="notes">
+							<h4>总结</h4>
+							<p>回顾剩下的两点理由，Three.js的使用量上升，和社区的高活跃度，我认为都和WebGL以及VR／AR是分不开的。</p>
+							<p>Three.js实现WebVR或者WebAR，还需要一些辅助库的帮助，也需要我们去学习。</p>
+							<p>Three.js进入我们的视野之后，还有些什么样的可能性呢？这个留给大家去思考。</p>
+							<p>大家可以想想，它和我们平时经熟悉的技术可以碰撞出什么火花。</p>
+						</aside>
 				</section>
 				<section>
 					<h1>Q&A</h1>
